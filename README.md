@@ -16,7 +16,8 @@ work in app directory
 
 
 ### To Do
-- [ ] css loader
-* [ ] sass loader
+- [x] css loader
+* [x] sass loader
 * [ ] browsersync
 * [ ] watch --
+* [ ] dev/prod configs
