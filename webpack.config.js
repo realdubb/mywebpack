@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var path = require('path');
 
 module.exports = {
@@ -40,6 +41,13 @@ module.exports = {
       new ExtractTextPlugin("app.css"),
       new HtmlWebpackPlugin({
         template: 'app/index.html'
+      }),
+      new BrowserSyncPlugin({
+        // browse to http://localhost:3000/ during development,
+        // ./public directory is being served
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['dist'] }
       })
     ]
 };
