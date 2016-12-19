@@ -1,6 +1,8 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+
 var path = require('path');
 
 module.exports = {
@@ -27,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader"),
         include: path.resolve(__dirname, "app/css")
       },
       {
@@ -36,6 +38,8 @@ module.exports = {
     ],
 
   },
+
+  postcss: [ autoprefixer({ browsers: ['> 1%'] }) ],
 
   plugins: [
       new ExtractTextPlugin("app.css"),

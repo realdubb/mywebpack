@@ -9,4 +9,7 @@ $primary-color: rgb(255,140,0);
 
 #app{
   color: $primary-color;
+  border-radius: 100%;
+  background-color: blue;
+  transition: transform 1s;
 }
